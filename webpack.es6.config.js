@@ -20,6 +20,10 @@ module.exports = {
 				loaders:["babel-loader"],
 				exclude:"/node_modules/",
 				include:path.resolve(__dirname,"/es6/")
+			},
+			{
+				test:/.html$/,
+				loader:'html-loader'
 			}
 		]
 	},
@@ -31,8 +35,10 @@ module.exports = {
 	},
 	plugins:[
 		new htmlWebpackPlugin({
-			title:"欢迎",
-			chunks:["build"]
+			filename: 'index.html',
+			inject: 'body',
+			template: 'index.html_vm'
+
 		})
 	]
 }
