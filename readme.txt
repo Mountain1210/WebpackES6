@@ -1,61 +1,61 @@
 npm install babel-cli -g 
 npm install babel-cli --save-dev
-×ª»»ÃüÁî£ºbabel app.js --out-file build.js
+è½¬æ¢å‘½ä»¤ï¼šbabel app.js --out-file build.js
 
-²»ÒªÂäÏÂes2015
+ä¸è¦è½ä¸‹es2015
 
 npm install --save-dev babel-preset-es2015
-ÔÚÄ¿Â¼ÏÂ´´½¨.babelrcÎÄ¼ş£¬ÉèÖÃÎª{"preset":["es-2015","react"]}
+åœ¨ç›®å½•ä¸‹åˆ›å»º.babelrcæ–‡ä»¶ï¼Œè®¾ç½®ä¸º{"preset":["es-2015","react"]}
 
 
-var htmlWebpackPlugin = require('html-webpack-plugin');//×Ô¶¯Éú³Éhtml²å¼ş
+var htmlWebpackPlugin = require('html-webpack-plugin');//è‡ªåŠ¨ç”Ÿæˆhtmlæ’ä»¶
 module.exports = {
 /*
-	ÏÂÃæÊÇ¶àÎÄ¼ş´ò°ü
+	ä¸‹é¢æ˜¯å¤šæ–‡ä»¶æ‰“åŒ…
 	======================================
-	entry:{//Èë¿ÚÎÄ¼ş
+	entry:{//å…¥å£æ–‡ä»¶
 		build:"./app/index.js",
 		abc:"./app/abc.js"
 	},
-	output:{//´ò°üºóµÄ
-		path:"./build/",//´ò°üºóµÄÄ¿Â¼
-		filename:"[name].js"//´ò°üºóµÄÎÄ¼şÃû
+	output:{//æ‰“åŒ…åçš„
+		path:"./build/",//æ‰“åŒ…åçš„ç›®å½•
+		filename:"[name].js"//æ‰“åŒ…åçš„æ–‡ä»¶å
 	},
 	======================================
 	
 */
-	//µ¥ÎÄ¼ş´ò°ü
+	//å•æ–‡ä»¶æ‰“åŒ…
 	entry:"./app/index.js",
-	output:{//´ò°üºóµÄ
-		path:"./build/",//´ò°üºóµÄÄ¿Â¼
-		filename:"build.js"//´ò°üºóµÄÎÄ¼şÃû
+	output:{//æ‰“åŒ…åçš„
+		path:"./build/",//æ‰“åŒ…åçš„ç›®å½•
+		filename:"build.js"//æ‰“åŒ…åçš„æ–‡ä»¶å
 	},
 	module:{
 		loaders:[
 			{
-				test:/.css$/,//¶ÔÓÚÊ¹ÓÃcssµÄÎÄ¼ş
-				loaders:["style","css"],//´ÓÓÒÍù×óÒÀ´ÎÊ¹ÓÃ
-				exclude:"/node_modules/" //ÅÅ³ınode_modeulesÄ¿Â¼
+				test:/.css$/,//å¯¹äºä½¿ç”¨cssçš„æ–‡ä»¶
+				loaders:["style","css"],//ä»å³å¾€å·¦ä¾æ¬¡ä½¿ç”¨
+				exclude:"/node_modules/" //æ’é™¤node_modeulesç›®å½•
 			}
 		]
 	},
-	devServer:{//¶Ô·şÎñ½øĞĞÅäÖÃ
+	devServer:{//å¯¹æœåŠ¡è¿›è¡Œé…ç½®
 		hot:true,
 		inline:true
 		
 		
 		
 	},
-	resolve:{//×Ô¶¯²¹È«Ê¶±ğºó×º
-		extensions:['','.js',".css",'jsx']  //×Ô¶¯²¹È«Ê¶±ğºó×º
+	resolve:{//è‡ªåŠ¨è¡¥å…¨è¯†åˆ«åç¼€
+		extensions:['','.js',".css",'jsx']  //è‡ªåŠ¨è¡¥å…¨è¯†åˆ«åç¼€
 	},
-	plugins:[  //Ê¹ÓÃ²å¼ş
-		new htmlWebpackPlugin({  //´´½¨Ò»¸öhtmlÀ´·ÃÎÊÒ»¸öjs£¬Ä¿Ç°ÊÇbuild.js
-			title:"»¶Ó­",
+	plugins:[  //ä½¿ç”¨æ’ä»¶
+		new htmlWebpackPlugin({  //åˆ›å»ºä¸€ä¸ªhtmlæ¥è®¿é—®ä¸€ä¸ªjsï¼Œç›®å‰æ˜¯build.js
+			title:"æ¬¢è¿",
 			chunks:["build"]
 		}),
-		new htmlWebpackPlugin({  //´´½¨Ò»¸öhtmlÀ´·ÃÎÊÒ»¸öjs£¬Ä¿Ç°ÊÇbuild.js
-			title:"»¶Ó­",
+		new htmlWebpackPlugin({  //åˆ›å»ºä¸€ä¸ªhtmlæ¥è®¿é—®ä¸€ä¸ªjsï¼Œç›®å‰æ˜¯build.js
+			title:"æ¬¢è¿",
 			filename:"class",
 			chunks:["abc"]
 		})
@@ -64,11 +64,14 @@ module.exports = {
 
 
 /*
-ÈÈ¼ÓÔØ
-1¡¢webpack-dev-server --port 3000 --hot --inline ±ØĞëÈ«ÊÇÁ½¸öºáÏß£¬ÉÙÒ»¸öÒ²²»ÄÜÈÈ¼ÓÔØ
-2¡¢webpack-dev-server --port 3000 --hot --inline --content-base ./build/  //  --content-base ./build/ÊÇËµÃ÷½«¸ùÄ¿Â¼·ÅÔÚµ±Ç°·şÎñbuildµÄÎÄ¼ş¼ĞÏÂ
-3¡¢npm install html-webpack-plugin --save-dev  //×Ô¶¯Éú³Éhtml
+çƒ­åŠ è½½
+1ã€webpack-dev-server --port 3000 --hot --inline å¿…é¡»å…¨æ˜¯ä¸¤ä¸ªæ¨ªçº¿ï¼Œå°‘ä¸€ä¸ªä¹Ÿä¸èƒ½çƒ­åŠ è½½
+2ã€webpack-dev-server --port 3000 --hot --inline --content-base ./build/  //  --content-base ./build/æ˜¯è¯´æ˜å°†æ ¹ç›®å½•æ”¾åœ¨å½“å‰æœåŠ¡buildçš„æ–‡ä»¶å¤¹ä¸‹
+3ã€npm install html-webpack-plugin --save-dev  //è‡ªåŠ¨ç”Ÿæˆhtml
 
-4¡¢npm install react react-dom babel-preset-react --save-dev //½âÊÍReactµÄ²å¼ş
-5¡¢npm install react-hot-loader --save-dev //react ÈÈ¼ÓÔØ
+4ã€npm install react react-dom babel-preset-react --save-dev //è§£é‡ŠReactçš„æ’ä»¶
+5ã€npm install react-hot-loader --save-dev //react çƒ­åŠ è½½
 */
+
+
+var ExtractTextPlugin = require('extract-text-webpack-plugin'); //2017-12-21æœ€æ–°æ·»åŠ 
