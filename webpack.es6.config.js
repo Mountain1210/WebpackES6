@@ -1,6 +1,8 @@
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
+
+var HelloCompilationPlugin=require('./webpackPlus/hellocompilationPlugin.js')
 module.exports = {
 	entry:{
 		build:"./es6/index.js"
@@ -52,7 +54,8 @@ module.exports = {
 			inject: 'body',
 			template: 'index.html_vm'
 
-		})
+		}),
+		new HelloCompilationPlugin({options: "nada"})
 	]
 	
 }
