@@ -54,12 +54,9 @@ console.log(a.toString());*/
 // getLocation()
 
 import Bird from './common/Bird'
-import Base from './common/base'
+import Name from './business/name1'
 
-// console.log(Base)
-let base1=new Base("王伟");
-base1.insert();
-base1.toString();
+var name=new Name({"id":"3257","name":"王伟","contents":"中天佳话"});
 
 
 // let bird=new Bird({'name':"你奶奶","type":"没有什么"});

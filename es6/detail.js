@@ -1,0 +1,2 @@
+﻿alert("detail")
+console.log($)
