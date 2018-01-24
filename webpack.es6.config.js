@@ -16,8 +16,20 @@ module.exports = {
 		path:"./es6_build/",
 		filename:"[name].js"
 	},
+	externals: {
+	      $:"jquery",
+
+	             jQuery:"jquery",
+
+	             "window.jQuery":"jquery"
+	},
 	module:{
 		loaders:[
+			{ 
+				test: require.resolve('jquery'),
+   				 loader: 'expose?jQuery!expose?$'
+   			},
+   { test: require.resolve("jquery"), loader: "expose-loader?$!expose-loader?jQuery" },
 			{
 				test:/.css$/,
 				loaders:["style","css"],
@@ -38,6 +50,7 @@ module.exports = {
 		                test: /\.scss$/,
 		                loader: ExtractTextPlugin.extract("style", 'css!sass') //这里用了样式分离出来的插件，如果不想分离出来，可以直接这样写 loader:'style!css!sass'
 		            }
+		            
 		]
 	},
 	devServer:{
