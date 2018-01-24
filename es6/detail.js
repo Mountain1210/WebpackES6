@@ -1,24 +1,20 @@
-﻿// import $ from 'expose?$!jquery'
+﻿ var echarts=require('echarts');
+// 基于准备好的dom，初始化echarts实例
+//自定义全是在html中生成
+ var option = {
+     xAxis: {
+         type: 'category',
+         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+     },
+     yAxis: {
+         type: 'value'
+     },
+     series: [{
+         data: [820, 932, 901, 934, 1290, 1330, 1320],
+         type: 'line'
+     }]
+ };
 
-var $ = require('jquery');
 
-
-require('jquery-modal');
-$("#dd").modal({
-  escapeClose: false,
-  clickClose: false,
-  showClose: false
-});
-    //     $("#add").click(function() {
-    //         var branches = $("<li><span class='folder'>New Sublist</span><ul>" + 
-    //             "<li><span class='file'>Item1</span></li>" + 
-    //             "<li><span class='file'>Item2</span></li></ul></li>").appendTo("#browser");
-    //         $("#browser").treeview({
-    //             add: branches
-    //         });
-    //         branches = $("<li class='closed'><span class='folder'>New Sublist</span><ul><li><span class='file'>Item1</span></li><li><span class='file'>Item2</span></li></ul></li>").prependTo("#folder21");
-    //         $("#browser").treeview({
-    //             add: branches
-    //         });
-    //     });
-    // });
+var mycharts=echarts.init(document.getElementById('main'));
+mycharts.setOption(option);

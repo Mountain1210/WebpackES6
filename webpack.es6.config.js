@@ -16,6 +16,14 @@ module.exports = {
 		path:"./es6_build/",
 		filename:"[name].js"
 	},
+
+	resolve:{
+		extensions:['','.js',".css",'jsx','vue'],  //自动补全识别后缀
+		//加入模块短命名
+		// alias: {
+		//             "echarts": "../plus/echarts.common.min.js"   
+		//         }
+	},
 	externals: {
 	      $:"jquery",
 
@@ -29,7 +37,10 @@ module.exports = {
 				test: require.resolve('jquery'),
    				 loader: 'expose?jQuery!expose?$'
    			},
-   { test: require.resolve("jquery"), loader: "expose-loader?$!expose-loader?jQuery" },
+   			{ 
+   				test: require.resolve("jquery"), 
+   				loader: "expose-loader?$!expose-loader?jQuery" 
+   			},
 			{
 				test:/.css$/,
 				loaders:["style","css"],
@@ -56,9 +67,7 @@ module.exports = {
 	devServer:{
 
 	},
-	resolve:{
-		extensions:['','.js',".css",'jsx','vue']  //自动补全识别后缀
-	},
+	
 	vue: {
 	        loaders: {
 	            js: 'babel', 
@@ -120,9 +129,9 @@ module.exports = {
 		           hash: true,
 		           minify:{
 		                           caseSensitive: false, //是否大小写敏感
-		                           removeComments:true, // 去除注释
-		                           removeEmptyAttributes:true, // 去除空属性
-		                           collapseWhitespace: true //是否去除空格
+		                           removeComments:false, // 去除注释
+		                           removeEmptyAttributes:false, // 去除空属性
+		                           collapseWhitespace: false //是否去除空格
 		                       }
 		        })
 		,new LodashModuleReplacementPlugin({
