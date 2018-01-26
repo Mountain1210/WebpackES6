@@ -4,7 +4,8 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
 
-var HelloCompilationPlugin=require('./webpackPlus/hellocompilationPlugin.js')
+//测试插件用的
+// var HelloCompilationPlugin=require('./webpackPlus/hellocompilationPlugin.js')
 module.exports = {
 	entry:{
 		vendor: ['jquery', 'lodash'],
@@ -20,9 +21,11 @@ module.exports = {
 	resolve:{
 		extensions:['','.js',".css",'jsx','vue'],  //自动补全识别后缀
 		//加入模块短命名
-		// alias: {
-		//             "echarts": "../plus/echarts.common.min.js"   
-		//         }
+		alias: {
+		            // "echarts": "../plus/echarts.common.min.js"   
+		            "daterangepicker":"../plus/daterangepicker/1.0.0/daterangepicker.js",
+		            "bootstrap":"../plus/fonts/bootstrap.min.css"
+		        }
 	},
 	externals: {
 	      $:"jquery",
@@ -60,7 +63,16 @@ module.exports = {
 		           {
 		                test: /\.scss$/,
 		                loader: ExtractTextPlugin.extract("style", 'css!sass') //这里用了样式分离出来的插件，如果不想分离出来，可以直接这样写 loader:'style!css!sass'
-		            }
+		            },
+		            //需找下一个elm工程 中的utils
+		            // {
+		            //             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+		            //             loader: 'url',
+		            //             query: {
+		            //                 limit: 10000,
+		            //                 name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+		            //             }
+		            //         }
 		            
 		]
 	},
@@ -138,7 +150,8 @@ module.exports = {
 		      path: true,
 		      flattening: true
 		    })
-		,new HelloCompilationPlugin({options: "nada"})
+		//下面是测试webpack插件
+		// ,new HelloCompilationPlugin({options: "nada"})
 	]
 	
 }

@@ -2,21 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+ <link rel="stylesheet" href="/css/bootstrap.min.css">
 
 </head>
 <body>
-    <div id="main">
-    <div id="dd">123132</div>
+ 
+    <a href="/login.html" data-modal="#login-modal">Login</a>
 
-
-    <div id="ex1" class="modal">
-      <p>Thanks for clicking. That felt good.</p>
-      <a href="#" rel="modal:close">Close</a>
+    <!-- Login modal embedded in page -->
+    <div id="login-modal" class="modal">
+      这后面显示的什么字啊?
     </div>
+<hr>
+    <hr>
+    <hr>
+	<a href="#ex5" data-modal>Open a DOM element</a>
+	<a href="ajax.html" data-modal>Open an AJAX modal</a>
 
-    <!-- Link to open the modal -->
-    <p><a href="#ex1" rel="modal:open">Open Modal</a></p>
-
+<hr>
+    <hr>
+    <hr>
+Echarts用法
+   <div id="main" style="width:500px; height:600px"></div>
+    <hr>
+    <hr>
+    <hr>
+   <div id="main1" style="width:1500px; height:600px"></div>
+    <!-- 双时间插件 -->
+    <hr>
+    <hr>
+    <hr>
+<input type="text" readonly="readonly" id="reservationtime" class="doubledate ipticon"/>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+        <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
 </body>
 </html>
