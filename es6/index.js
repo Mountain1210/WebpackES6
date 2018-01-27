@@ -53,12 +53,12 @@ console.log(a.toString());*/
 // console.log("===========================");
 // getLocation()
 
-import Bird from './common/Bird'
-import Name from './business/name1'
+// import Bird from './common/Bird'
+// import Name from './business/name1'
 
-var name=new Name({"id":"3257","name":"王伟","contents":"中天佳话"});
-
-
+// var name=new Name({"id":"3257","name":"王伟","contents":"中天佳话"});
+require('../css/img.css')
+console.log(11111)
 // let bird=new Bird({'name':"你奶奶","type":"没有什么"});
 // bird.eat();
 

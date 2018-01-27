@@ -5,6 +5,7 @@
 
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app"><img src="${ require('../img/1.jpg') }" /></div>
+
 </body>
 </html>
