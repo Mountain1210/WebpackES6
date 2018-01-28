@@ -1,8 +1,8 @@
+var path = require("path");
+var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var path = require("path");
 
 
 module.exports = {
@@ -30,11 +30,9 @@ module.exports = {
 		        }
 	},
 	externals: {
-	     	 $:"jquery",
-
-	             jQuery:"jquery",
-
-	             "window.jQuery":"jquery"
+	     	$:"jquery",
+			jQuery:"jquery",
+			"window.jQuery":"jquery"
 	},
 	module:{
 		loaders:[
@@ -71,7 +69,8 @@ module.exports = {
 			        
 			           loader:"file-loader?name=img/[name]00000[hash].[ext]"
 			        
-			  }
+			  },
+			  {test:/\.(eot|ttf|woff|woff2|svg)$/,loader:'file?name=fonts/[name].[ext]'}
 		            
 		            
 		]

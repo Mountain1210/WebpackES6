@@ -1,4 +1,5 @@
-﻿ var echarts=require('echarts');
+﻿ require('../css/bootstrap.min.css')
+ var echarts=require('echarts');
  var daterangepicker=require('daterangepicker');
 
  console.log(daterangepicker)
