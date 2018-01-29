@@ -1,8 +1,8 @@
-var path = require("path");
-var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require("path");
 
 
 module.exports = {
@@ -13,11 +13,8 @@ module.exports = {
 		,detail:"./es6/detail.js"
 	},
 	output:{
-		// path:"./es6_build/",
-		filename:"js/[name].js",
-
-		path:path.resolve(__dirname,"dist",'assets'),
-		publicPath:"/assets/"
+		path:"./es6_build/",
+		filename:"[name].js"
 	},
 
 	resolve:{
@@ -30,9 +27,11 @@ module.exports = {
 		        }
 	},
 	externals: {
-	     	$:"jquery",
-			jQuery:"jquery",
-			"window.jQuery":"jquery"
+	     	 $:"jquery",
+
+	             jQuery:"jquery",
+
+	             "window.jQuery":"jquery"
 	},
 	module:{
 		loaders:[
@@ -43,7 +42,7 @@ module.exports = {
    			{ 
    				test: require.resolve("jquery"), 
    				loader: "expose-loader?$!expose-loader?jQuery" 
-   			}, 
+   			},
 			{
 				test:/.css$/,
 				loaders:["style","css"],
@@ -63,15 +62,7 @@ module.exports = {
 		           {
 		                test: /\.scss$/,
 		                loader: ExtractTextPlugin.extract("style", 'css!sass') 
-		            },
-		            {
-			         test: /\.(png|svg|jpg|gif)$/,
-			        
-			           loader:"file-loader?name=img/[name]00000[hash].[ext]"
-			        
-			  },
-			  {test:/\.(eot|ttf|woff|woff2|svg)$/,loader:'file?name=fonts/[name].[ext]'}
-		            
+		            }
 		            
 		]
 	},
