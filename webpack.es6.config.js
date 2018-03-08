@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
 
 //测试插件用的
-// var HelloCompilationPlugin=require('./webpackPlus/hellocompilationPlugin.js')
+var FileListPlugin=require('./webpackPlus/FileListPlugin.js')
 module.exports = {
 	entry:{
 		vendor: ['jquery', 'lodash'],
@@ -17,6 +17,7 @@ module.exports = {
 		path:"./es6_build/",
 		filename:"[name].js"
 	},
+	watch: true,
 
 	resolve:{
 		extensions:['','.js',".css",'jsx','vue'],  //自动补全识别后缀
@@ -76,8 +77,15 @@ module.exports = {
 		            
 		]
 	},
+	// 此时你可以在浏览器中访问http://localhost:8080/webpack-dev-server/来打开的你开发应用，此时它认为你的应用路径是根目录/（这里的根目录是指运行npm run dev的地方，项目的根目录）。
+	// 如果你的根目录下有一个名为index.html的文件，那么访问上面那个网址是则会直接打开那么网页
+	// 如果你的根目录下没有index.html，则会展示你根目录下的所有文件列表
+	// 如果你想改变展现的静态文件目录路径，可以在配置文件中添加devServer参数，并在这个参数的对象里添加contentBase参数指定静态文件目录。比如:
+	// devServer:{
+		// contentBase: path.join(__dirname)
+	// },
 	devServer:{
-
+		// contentBase: path.join(__dirname)
 	},
 	
 	vue: {
@@ -151,7 +159,7 @@ module.exports = {
 		      flattening: true
 		    })
 		//下面是测试webpack插件
-		// ,new HelloCompilationPlugin({options: "nada"})
+		,new FileListPlugin({options: "nada"})
 	]
 	
 }

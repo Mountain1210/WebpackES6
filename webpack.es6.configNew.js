@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var FileListPlugin=require('./webpackPlus/FileListPlugin.js')
 
 module.exports = {
 	entry:{
@@ -19,12 +19,9 @@ module.exports = {
 		path:path.resolve(__dirname,"dist",'assets'),
 		publicPath:"/assets/"
 	},
-
 	resolve:{
-		extensions:['','.js',".css",'jsx','vue'],  
-
+		extensions:['','.js',".css",'jsx','vue'],
 		alias: {
-
 		            "daterangepicker":"../plus/daterangepicker/1.0.0/daterangepicker.js",
 		            "bootstrap":"../plus/fonts/bootstrap.min.css"
 		        }
@@ -65,9 +62,8 @@ module.exports = {
 		                loader: ExtractTextPlugin.extract("style", 'css!sass') 
 		            },
 		            {
-			         test: /\.(png|svg|jpg|gif)$/,
-			        
-			           loader:"file-loader?name=img/[name]00000[hash].[ext]"
+			         test: /\.(png|svg|jpg|gif)$/,			        
+			         loader:"file-loader?name=img/[name]00000[hash].[ext]"
 			        
 			  },
 			  {test:/\.(eot|ttf|woff|woff2|svg)$/,loader:'file?name=fonts/[name].[ext]'}
@@ -151,6 +147,7 @@ module.exports = {
 		      path: true,
 		      flattening: true
 		    })
+		,new FileListPlugin()
 
 	]
 	

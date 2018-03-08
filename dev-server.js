@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var path = require('path')
 var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = require('./webpack.es6.config');
+var webpackConfig = require('./webpack.es6.configNew');
 var bodyParser = require('body-parser')
 var port=4000;
 var proxyTable ={};
@@ -57,7 +57,7 @@ module.exports =process.env.NODE_ENV !== 'testing' ? app.listen(port, function (
     console.log(err)
     return
   }
-  var uri = 'http://localhost:' + port
+  var uri = 'http://localhost:' + port+'/assets/'
   console.log('Listening at ' + uri + '\n')
 
   //if (process.env.NODE_ENV !== 'testing')

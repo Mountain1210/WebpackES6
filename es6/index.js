@@ -57,8 +57,31 @@ console.log(a.toString());*/
 // import Name from './business/name1'
 
 // var name=new Name({"id":"3257","name":"王伟","contents":"中天佳话"});
-require('../css/img.css')
-console.log(11111)
+require('../css/img.css');
+import axios from 'axios';
+ axios.get('/api/books').then((res) => {
+    console.log(res.data.data)
+            var books = res.data.data;
+           for(let item of books){
+              console.log(item.name)
+           }
+      //       console.log(books)
+      //       var totalBooks = res.body.total_records
+      // console.log(books);
+      // console.log(totalBooks);
+          }, (error) => {
+            console.log(error)
+          })
+// this.bookService = this.$resource('/api/books')
+//      this.bookService.query({page: 1, size: this.pageSize})
+//           .then((res) => {
+//             this.books = res.body.data
+//             this.totalBooks = res.body.total_records
+//       console.log(this.books);
+//       console.log(this.totalBooks);
+//           }, (error) => {
+//             console.log(error)
+//           })
 // let bird=new Bird({'name':"你奶奶","type":"没有什么"});
 // bird.eat();
 
