@@ -4,12 +4,12 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-<<<<<<< HEAD
-//测试插件用的
-var FileListPlugin=require('./webpackPlus/FileListPlugin.js')
-=======
 
->>>>>>> c7d4afdfb115f4d1925336959f68f149e65811e3
+//测试插件用的
+//var FileListPlugin=require('./webpackPlus/FileListPlugin.js')
+
+
+
 module.exports = {
 	entry:{
 		vendor: ['jquery', 'lodash'],
@@ -164,12 +164,9 @@ module.exports = {
 		      path: true,
 		      flattening: true
 		    })
-<<<<<<< HEAD
-		//下面是测试webpack插件
-		,new FileListPlugin({options: "nada"})
-=======
 
->>>>>>> c7d4afdfb115f4d1925336959f68f149e65811e3
+		//,new FileListPlugin({options: "nada"})
+
 	]
 	
 }
